@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>نظام الحاسوب العسكري</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.rtl.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <style>
+        :root {
+            --military-green: #2E4A1F;
+            --military-dark: #1A1A1A;
+            --military-light: #4A4A4A;
+            --military-accent: #8B9D78;
+            --military-red: #8B2E2E;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--military-dark);
+            color: #e0e0e0;
+            height: 100vh;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .login-container {
+            background-color: rgba(0, 0, 0, 0.7);
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+            padding: 30px;
+            max-width: 400px;
+            width: 90%;
+        }
+        
+        .login-background {
+            background-image: url('images/military-background.jpg');
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .military-logo {
+            width: 120px;
+            height: 120px;
+            margin-bottom: 20px;
+        }
+        
+        .btn-military {
+            background-color: var(--military-green);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-weight: bold;
+            transition: all 0.3s;
+        }
+        
+        .btn-military:hover {
+            background-color: var(--military-accent);
+            color: white;
+        }
+        
+        .form-control {
+            background-color: rgba(255, 255, 255, 0.1);
+            border: 1px solid var(--military-accent);
+            color: white;
+            padding: 12px;
+        }
+        
+        .form-control:focus {
+            background-color: rgba(255, 255, 255, 0.2);
+            color: white;
+            border-color: var(--military-green);
+            box-shadow: 0 0 0 0.25rem rgba(46, 74, 31, 0.25);
+        }
+        
+        .form-label {
+            color: #e0e0e0;
+            font-weight: bold;
+        }
+        
+        .login-title {
+            color: white;
+            font-weight: bold;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        
+        .login-footer {
+            color: #a0a0a0;
+            font-size: 0.8rem;
+            text-align: center;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-background">
+        <div class="login-container">
+            <div class="text-center">
+                <img src="images/military-emblem.png" alt="الشعار العسكري" class="military-logo">
+                <h2 class="login-title">نظام الحاسوب العسكري</h2>
+            </div>
+            
+            <form id="loginForm">
+                <div class="mb-3">
+                    <label for="username" class="form-label">اسم المستخدم</label>
+                    <div class="input-group">
+                        <span class="input-group-text"><i class="bi bi-person-fill"></i></span>
+                        <input type="text" class="form-control" id="username" placeholder="أدخل اسم المستخدم" required>
+                    </div>
+                </div>
+                
+                <div class="mb-4">
+                    <label for="password" class="form-label">كلمة المرور</label>
+                    <div class="input-group">
+                        <span class="input-group-text"><i class="bi bi-lock-fill"></i></span>
+                        <input type="password" class="form-control" id="password" placeholder="أدخل كلمة المرور" required>
+                    </div>
+                </div>
+                
+                <div class="d-grid gap-2">
+                    <button type="submit" class="btn btn-military">تسجيل الدخول</button>
+                </div>
+                
+                <div class="login-footer mt-4">
+                    <p>هذا النظام مخصص للاستخدام الرسمي فقط</p>
+                    <p>جميع المحاولات غير المصرح بها للوصول سيتم تسجيلها ومتابعتها</p>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            
+            // في الإصدار النهائي، سيتم إرسال بيانات تسجيل الدخول إلى الخادم
+            // للتبسيط، سنستخدم تسجيل دخول وهمي هنا
+            if (username === 'admin' && password === 'admin123') {
+                window.location.href = 'dashboard.html';
+            } else {
+                alert('اسم المستخدم أو كلمة المرور غير صحيحة');
+            }
+        });
+    </script>
+</body>
+</html>
