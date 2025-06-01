@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>لوحة التحكم - نظام الحاسوب العسكري</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.rtl.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <style>
+        :root {
+            --military-green: #2E4A1F;
+            --military-dark: #1A1A1A;
+            --military-light: #4A4A4A;
+            --military-accent: #8B9D78;
+            --military-red: #8B2E2E;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--military-dark);
+            color: #e0e0e0;
+            min-height: 100vh;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .sidebar {
+            background-color: var(--military-dark);
+            border-left: 1px solid var(--military-light);
+            height: 100vh;
+            position: fixed;
+            width: 250px;
+            padding-top: 20px;
+        }
+        
+        .sidebar .nav-link {
+            color: #e0e0e0;
+            padding: 12px 20px;
+            margin: 5px 0;
+            border-radius: 0;
+            transition: all 0.3s;
+        }
+        
+        .sidebar .nav-link:hover, .sidebar .nav-link.active {
+            background-color: var(--military-green);
+            color: white;
+        }
+        
+        .sidebar .nav-link i {
+            margin-left: 10px;
+            width: 20px;
+            text-align: center;
+        }
+        
+        .main-content {
+            margin-right: 250px;
+            padding: 20px;
+        }
+        
+        .app-header {
+            background-color: var(--military-dark);
+            border-bottom: 1px solid var(--military-light);
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .user-info {
+            display: flex;
+            align-items: center;
+        }
+        
+        .user-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: var(--military-green);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-left: 10px;
+            color: white;
+            font-weight: bold;
+        }
+        
+        .app-card {
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 20px;
+            transition: all 0.3s;
+            cursor: pointer;
+            text-align: center;
+            height: 150px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .app-card:hover {
+            background-color: var(--military-green);
+            transform: translateY(-5px);
+        }
+        
+        .app-card i {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+        
+        .app-card h5 {
+            margin: 0;
+            font-weight: bold;
+        }
+        
+        .notification-badge {
+            position: absolute;
+            top: 5px;
+            left: 5px;
+            background-color: var(--military-red);
+            color: white;
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.7rem;
+            font-weight: bold;
+        }
+        
+        .dashboard-title {
+            margin-bottom: 30px;
+            border-bottom: 2px solid var(--military-green);
+            padding-bottom: 10px;
+        }
+        
+        .military-logo-small {
+            width: 40px;
+            height: 40px;
+            margin-left: 10px;
+        }
+        
+        .system-time {
+            font-size: 0.9rem;
+            color: #a0a0a0;
+        }
+    </style>
+</head>
+<body>
+    <div class="app-header">
+        <div class="d-flex align-items-center">
+            <img src="images/military-emblem.png" alt="الشعار العسكري" class="military-logo-small">
+            <h4 class="mb-0">نظام الحاسوب العسكري</h4>
+        </div>
+        
+        <div class="d-flex align-items-center">
+            <div class="system-time ms-4" id="systemTime"></div>
+            
+            <div class="user-info">
+                <div class="user-avatar">أ</div>
+                <div>
+                    <div class="fw-bold">مدير النظام</div>
+                    <div class="small">عقيد</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="d-flex">
+        <div class="sidebar">
+            <div class="px-3 mb-4 text-center">
+                <h5>القائمة الرئيسية</h5>
+            </div>
+            
+            <ul class="nav flex-column">
+                <li class="nav-item">
+                    <a class="nav-link active" href="#"><i class="bi bi-grid-1x2-fill"></i> لوحة التحكم</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#"><i class="bi bi-people-fill"></i> إدارة العساكر</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#"><i class="bi bi-search"></i> البحث</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#"><i class="bi bi-exclamation-triangle-fill"></i> المخالفات</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#"><i class="bi bi-calendar3"></i> الجدول الزمني</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#"><i class="bi bi-box-seam-fill"></i> المخزون والمعدات</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#"><i class="bi bi-bar-chart-fill"></i> التقارير</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#"><i class="bi bi-geo-alt-fill"></i> الخرائط</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#"><i class="bi bi-envelope-fill"></i> المراسلات</a>
+                </li>
+                <li class="nav-item mt-5">
+                    <a class="nav-link text-danger" href="index.html"><i class="bi bi-box-arrow-right"></i> تسجيل الخروج</a>
+                </li>
+            </ul>
+        </div>
+        
+        <div class="main-content">
+            <h2 class="dashboard-title">لوحة التحكم</h2>
+            
+            <div class="row">
+                <div class="col-md-4 col-sm-6 mb-4">
+                    <div class="app-card position-relative">
+                        <span class="notification-badge">3</span>
+                        <i class="bi bi-people-fill"></i>
+                        <h5>إدارة العساكر</h5>
+                    </div>
+                </div>
+                
+                <div class="col-md-4 col-sm-6 mb-4">
+                    <div class="app-card">
+                        <i class="bi bi-search"></i>
+                        <h5>البحث</h5>
+                    </div>
+                </div>
+                
+                <div class="col-md-4 col-sm-6 mb-4">
+                    <div class="app-card position-relative">
+                        <span class="notification-badge">5</span>
+                        <i class="bi bi-exclamation-triangle-fill"></i>
+                        <h5>المخالفات</h5>
+                    </div>
+                </div>
+                
+                <div class="col-md-4 col-sm-6 mb-4">
+                    <div class="app-card position-relative">
+                        <span class="notification-badge">2</span>
+                        <i class="bi bi-calendar3"></i>
+                        <h5>الجدول الزمني</h5>
+                    </div>
+                </div>
+                
+                <div class="col-md-4 col-sm-6 mb-4">
+                    <div class="app-card">
+                        <i class="bi bi-box-seam-fill"></i>
+                        <h5>المخزون والمعدات</h5>
+                    </div>
+                </div>
+                
+                <div class="col-md-4 col-sm-6 mb-4">
+                    <div class="app-card">
+                        <i class="bi bi-bar-chart-fill"></i>
+                        <h5>التقارير</h5>
+                    </div>
+                </div>
+                
+                <div class="col-md-4 col-sm-6 mb-4">
+                    <div class="app-card">
+                        <i class="bi bi-geo-alt-fill"></i>
+                        <h5>الخرائط</h5>
+                    </div>
+                </div>
+                
+                <div class="col-md-4 col-sm-6 mb-4">
+                    <div class="app-card position-relative">
+                        <span class="notification-badge">7</span>
+                        <i class="bi bi-envelope-fill"></i>
+                        <h5>المراسلات</h5>
+                    </div>
+                </div>
+                
+                <div class="col-md-4 col-sm-6 mb-4">
+                    <div class="app-card">
+                        <i class="bi bi-gear-fill"></i>
+                        <h5>الإعدادات</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // عرض الوقت والتاريخ الحالي
+        function updateSystemTime() {
+            const now = new Date();
+            const options = { 
+                weekday: 'long', 
+                year: 'numeric', 
+                month: 'long', 
+                day: 'numeric',
+                hour: '2-digit',
+                minute: '2-digit',
+                second: '2-digit'
+            };
+            document.getElementById('systemTime').textContent = now.toLocaleDateString('ar-SA', options);
+        }
+        
+        updateSystemTime();
+        setInterval(updateSystemTime, 1000);
+    </script>
+</body>
+</html>
